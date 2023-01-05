@@ -1,0 +1,3 @@
+#!/bin/bash
+
+javac -encoding Cp1252 -d bin -sourcepath src src/simulateur/Simulateur.java

@@ -1,0 +1,94 @@
+#!/bin/bash
+#en collaboration avec le groupe B3
+
+echo
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -s
+echo
+echo "Test numerique avec message aleatoire"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -s -mess 500
+echo
+echo "Test numerique avec message aleatoire a graine"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -s -seed 02496
+echo
+echo "Test numerique avec message fixe"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -s -mess 10100001110010011111000
+echo
+echo "Test ideal RZ"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -s -mess 10100001110010011111000 -form RZ
+echo
+echo "Test ideal NRZ"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -s -mess 10100001110010011111000 -form NRZ
+echo
+echo "Test ideal NRZT"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -s -mess 10100001110010011111000 -form NRZT
+echo
+echo "Test ideal avec 300 echantillons"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -s -mess 01010100001110 -nbEch 300 -ampl -5 -2
+echo
+echo "Test RZ bruite avec un SNR de 10 dB"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -s -snrpb 10.0 -mess 101010111010 -form RZ
+echo
+echo "Test RZ bruite avec un SNR de 20 dB"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -s -snrpb 20.0 -mess 101010111010 -form RZ
+echo
+echo "Test RZ bruite avec un SNR de 40 dB"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -s -snrpb 40.0 -mess 101010111010 -form RZ
+echo
+echo "Test RZ bruite avec un SNR de -20 dB"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -s -snrpb -20.0 -mess 101010111010 -form RZ
+echo
+echo "Test du nombre d'echantillons de 1"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -s -mess 101 -nbEch 1
+
+echo "Test du multi-trajet pour NRZT"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -nbEch  20  -form  NRZT  -ampl  -1  1  -ti  199  1  -mess  0001011100  -snrpb  5  -s  -ti  20  0.2
+
+echo "Test du multi-trajet pour RZ"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -nbEch  20  -form  RZ  -ampl  -1  1  -ti  199  1  -mess  0001011100  -snrpb  5 -s  -ti  20  0.2
+
+echo "Test du multi-trajet pour NRZ"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -nbEch  20  -form  NRZ  -ampl  -1  1  -mess  0001011100  -snrpb  5  -s  -ti  20  0.2
+
+echo "Test du decalage superieur a la taille du message"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -nbEch  20  -form  NRZ  -ampl  -1  1  -mess  0001011100  -snrpb  5  -s  -ti  2000  0.2
+
+echo "Test plus de 5 couples"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -nbEch  20  -form  NRZ  -ampl  -1  1  -mess  0001011100  -snrpb  5  -s  -ti  20  0.2 20  0.2 20  0.2 20  0.2 20  0.2 20  0.2 20  0.2 20  0.2
+
+echo "Test ar different de [0,1]"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -nbEch  20  -form  NRZ  -ampl  -1  1  -mess  0001011100  -snrpb  5  -s  -ti  20  2
+
+echo "Test couple pas entier"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -nbEch  20  -form  NRZ  -ampl  -1  1  -mess  0001011100  -snrpb  5  -s  -ti  20  0.2 20 
+
+echo "Test codeur logique"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -mess  0001011100  -s  -codeur
+
+echo "Test codeur analogique"
+echo "Ctrl + C pour passer au test suivant..."
+simulateur -nbEch  20  -form  NRZ  -ampl  -1  1  -mess  0001011100  -snrpb  5  -s  -ti  20  0.2 -codeur 
+
+echo
+echo "Ctrl + C pour quitter..."
+

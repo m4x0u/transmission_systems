@@ -1,0 +1,3 @@
+#!/bin/bash
+
+javadoc -encoding cp1252 -d docs -sourcepath src src/*/*.java

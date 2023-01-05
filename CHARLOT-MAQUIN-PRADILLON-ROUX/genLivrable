@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sh cleanAll
+tar cvzf CHARLOT-MAQUIN-PRADILLON-ROUX.tar.gz .
